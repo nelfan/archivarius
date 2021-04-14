@@ -21,6 +21,7 @@ public class OrmManager extends DbConnection {
         ReflectionMapper rf = new ReflectionMapper();
         Map<String, Object> map = rf.toMap(obj);
         System.out.println("sql: " + sql);
+        //abc
 
         try {
             preparedStatement = connection.prepareStatement(sql);
