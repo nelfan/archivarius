@@ -1,4 +1,4 @@
-package com.example;
+package com.example.crud;
 
 import com.example.annotations.Column;
 import com.example.annotations.Entity;

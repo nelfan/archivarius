@@ -1,4 +1,6 @@
-package com.example;
+package com.example.crud;
+
+import com.example.DbConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
