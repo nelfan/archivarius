@@ -5,6 +5,8 @@ import com.example.annotations.Entity;
 import com.example.annotations.Id;
 import com.example.tables.Utility;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -58,15 +60,15 @@ public class OrmManagerUtil {
                     //columnName = Utility.normalizeName(columnName);
                 }
                 if (!columnName.equals(id)) {
-                columns.add(columnName);
+                    columns.add(columnName);
                 }
             }
         }
 
         return columns;
-}
+    }
 
-    public static String getUpdateSql(String tableName, List<Object> idList, List<Object> columnList){
+    public static String getUpdateSql(String tableName, List<Object> idList, List<Object> columnList) {
         StringBuilder sql = new StringBuilder(String.format("UPDATE \"%s\" SET ", Utility.normalizeName(tableName)));
 
         ListIterator<Object> iterator = columnList.listIterator();
@@ -86,5 +88,25 @@ public class OrmManagerUtil {
 
         }
         return sql.toString();
+    }
+
+    public static void myPrStatement(PreparedStatement ps, int counter, Object obj) throws SQLException {
+        if (obj.getClass() == String.class) {
+            ps.setString(counter, String.valueOf(obj));
+        } else if (obj.getClass() == Integer.class) {
+            ps.setInt(counter, (Integer) obj);
+        } else if (obj.getClass() == Long.class) {
+            ps.setLong(counter, (Long) obj);
+        } else if (obj.getClass() == Byte.class) {
+            ps.setByte(counter, (Byte) obj);
+        } else if (obj.getClass() == Double.class){
+            ps.setDouble(counter, (Double) obj);
+        } else if (obj.getClass() == Float.class){
+            ps.setFloat(counter, (Float) obj);
+        } else if (obj.getClass() == Object.class){
+            ps.setObject(counter, obj);
+        } else if (obj.getClass() == Short.class){
+            ps.setShort(counter, (Short) obj);
+        }
     }
 }

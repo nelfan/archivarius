@@ -6,12 +6,12 @@ import com.example.annotations.Id;
 
 import java.util.Objects;
 
-@Entity("")
+@Entity
 public class Animal {
-    @Id("")
-    @Column("")
+    @Id
+    @Column
     private String id;
-    @Column("")
+    @Column
     private String name;
 
     public Animal(){

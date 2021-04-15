@@ -4,15 +4,14 @@ import com.example.annotations.Column;
 import com.example.annotations.Entity;
 import com.example.annotations.Id;
 
-@Entity("")
+@Entity
 public class Bird{
-    @Id("")
-    @Column("")
+    @Id
+    @Column
     private String id;
-    @Column("")
-    @Id("")
+    @Column
     private String name;
-    @Column("")
+    @Column
     private int age;
     @Column
     private String species;
